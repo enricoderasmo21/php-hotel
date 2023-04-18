@@ -49,23 +49,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>PHP Hotel</title>
 </head>
+
+
 <body>
 
-<?php 
-foreach($hotels as $hotel){
+<table class="table table-bordered">
+    <thead>
+        <tr> 
+            <?php 
 
-    echo "<br>";
+            foreach($hotels[0] as $chiave => $valore){ ?>
 
-    foreach($hotel as $chiave => $valore){
+                <th scope="col"> <?php echo $chiave ?> </th>
 
-        echo "{$chiave}: {$valore} <br>";
+            <?php } ?>
+        </tr>
+    </thead>
 
-    }
-}
+    <tbody>
 
-?>
-    
+        <?php foreach($hotels as $hotel){ ?>
+        <tr>
+          <td><?php  echo $hotel["name"] ?></td>
+          <td><?php  echo $hotel["description"] ?></td>
+          <td><?php  echo $hotel["parking"] ?></td>
+          <td><?php  echo $hotel["vote"] ?></td>
+          <td><?php  echo $hotel["distance_to_center"] ?></td>
+        </tr>
+
+        <?php } ?>
+    </tbody>
+</table>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
